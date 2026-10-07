@@ -20,7 +20,9 @@
 
 ## 安装
 
-推荐直接在 Steam 创意工坊订阅。手动安装：
+推荐在 Steam 创意工坊订阅：<https://steamcommunity.com/sharedfiles/filedetails/?id=3815035583>
+
+手动安装：
 
 1. 把 `descriptor.mod`、`thumbnail.png` 和 `localisation` 文件夹复制到 `文档/Paradox Interactive/Hearts of Iron IV/mod/md_full_country_names`。
 2. 在 `mod` 目录下新建 `md_full_country_names.mod`，内容为 `descriptor.mod` 的内容加上一行：
