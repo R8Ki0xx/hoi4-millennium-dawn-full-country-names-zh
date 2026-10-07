@@ -20,7 +20,9 @@
 
 ## 安装
 
-1. 把本仓库 clone（或下载解压）到 `文档/Paradox Interactive/Hearts of Iron IV/mod/md_full_country_names`。
+推荐直接在 Steam 创意工坊订阅。手动安装：
+
+1. 把 `descriptor.mod`、`thumbnail.png` 和 `localisation` 文件夹复制到 `文档/Paradox Interactive/Hearts of Iron IV/mod/md_full_country_names`。
 2. 在 `mod` 目录下新建 `md_full_country_names.mod`，内容为 `descriptor.mod` 的内容加上一行：
    ```
    path="C:/Users/<你的用户名>/Documents/Paradox Interactive/Hearts of Iron IV/mod/md_full_country_names"
@@ -35,7 +37,9 @@
 python build.py "E:/steam/steamapps/workshop/content/394360/2777392649"
 ```
 
-参数是千禧黎明 mod 所在目录（创意工坊 ID 2777392649），省略时使用脚本里的默认路径。要调整某个国家的译名，修改 `build.py` 里的 `FULL` 表后重新运行。
+参数是千禧黎明 mod 所在目录（创意工坊 ID 2777392649），省略时使用脚本里的默认路径。要调整某个国家的译名，修改 `build.py` 里的 `FULL` 表后重新运行。生成结果会同时同步到上面的 HOI4 mod 文件夹（如果存在），之后在启动器里更新创意工坊即可。
+
+封面图由 `tools/make_thumbnail.py` 生成。
 
 ## 译名规则
 

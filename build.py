@@ -2,11 +2,13 @@
 
 用法: python build.py [千禧黎明 mod 目录]
 默认目录为 Steam 创意工坊 2777392649；千禧黎明更新后重新运行即可同步新国家。
+生成结果写入本仓库，并同步到 HOI4 mod 文件夹（MOD_DIR，存在时）。
 """
-import re, os, sys, collections
+import re, os, sys, shutil, collections
 
 MD = sys.argv[1] if len(sys.argv) > 1 else r"E:/steam/steamapps/workshop/content/394360/2777392649"
 OUT = os.path.dirname(os.path.abspath(__file__))
+MOD_DIR = os.path.expanduser(r"~/Documents/Paradox Interactive/Hearts of Iron IV/mod/md_full_country_names")
 IDEOS = ["neutrality", "democratic", "fascism", "communism", "nationalist"]
 
 # tag -> official full name (replaces the tag's short name wherever MD uses it)
@@ -151,3 +153,9 @@ write(OUT + "/localisation/simp_chinese/replace/zz_md_full_country_names_cosmeti
 
 tags_changed = sorted({k[:3] for k in changes} | {k[:3] for k in cos_changes})
 print("base keys", len(changes), "cosmetic keys", len(cos_changes), "tags", len(tags_changed))
+
+# 同步到游戏 mod 文件夹；descriptor.mod 不覆盖，以保留启动器写入的 remote_file_id
+if os.path.isdir(MOD_DIR):
+    shutil.copytree(OUT + "/localisation", MOD_DIR + "/localisation", dirs_exist_ok=True)
+    shutil.copy2(OUT + "/thumbnail.png", MOD_DIR)
+    print("synced to", MOD_DIR)
